@@ -1,10 +1,13 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
+    agent {
+        docker {
+            image 'gradle:jdk11-slim'
+        }
+    }
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'mvn --version'
-                sh 'echo hallo'
+                sh 'gradle build'
             }
         }
     }
